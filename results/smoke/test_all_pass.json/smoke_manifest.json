@@ -1,0 +1,50 @@
+{
+  "scenario": "all_pass",
+  "n_subjects": 109,
+  "n_folds": 5,
+  "n_csvs_written": 109,
+  "representations": [
+    "R32",
+    "R8",
+    "S-rand",
+    "S-TTSA",
+    "R8+S",
+    "R_FM",
+    "R_FM+S"
+  ],
+  "stressors": [
+    "S0",
+    "S1",
+    "S2",
+    "S3"
+  ],
+  "rep_effect_at_s0": {
+    "R32": 2.5,
+    "R8": 1.8,
+    "S-rand": 0.3,
+    "S-TTSA": 0.95,
+    "R8+S": 2.1,
+    "R_FM": 2.2,
+    "R_FM+S": 2.5
+  },
+  "interaction": {
+    "R8|S1": -0.8,
+    "R8|S2": -1.0,
+    "R8|S3": -0.4,
+    "S-TTSA|S1": -0.2,
+    "S-TTSA|S2": -0.3,
+    "S-TTSA|S3": -0.4,
+    "R8+S|S1": -0.3,
+    "R8+S|S2": -0.4,
+    "R8+S|S3": -0.4,
+    "R32|S1": -0.7,
+    "R32|S2": -0.9,
+    "R32|S3": -0.4
+  },
+  "baseline_logit": 0.0,
+  "subject_offset_sd": 0.3,
+  "fold_noise_sd": 0.2,
+  "git_commit": "GIT_UNAVAILABLE",
+  "script_sha256": "f9ca9a1a7530b1ee364c10efcda0ccae42e830bdd5bc8a47d8ad62eb4ff0387c",
+  "timestamp_utc": "2026-06-06T12:06:41.431584Z"
+}

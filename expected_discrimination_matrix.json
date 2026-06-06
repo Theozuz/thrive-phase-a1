@@ -1,0 +1,91 @@
+{
+  "_meta": {
+    "schema_version": "discrimination_matrix_v2",
+    "description": "Truth table for H1-H10 verdicts on the 8 synthetic A-1 scenarios. The analyse_a1_factorial.py output must match this table exactly for the discrimination gate to pass.",
+    "scenarios": "all_pass, h1_fail, h2_fail, h3_fail, h4_fail, h5_fail, h9_fail, h10_fail",
+    "hypotheses_covered_by_a1_analyser": "H1, H2, H3, H4, H5, H9, H10",
+    "hypotheses_evaluated_elsewhere": "H6, H7 in Phase-A-7 analyser; H8 in Phase-B-2 analyser",
+    "verdict_values": "PASS | FAIL"
+  },
+
+  "all_pass": {
+    "H1":  "PASS",
+    "H2":  "PASS",
+    "H3":  "PASS",
+    "H4":  "PASS",
+    "H5":  "PASS",
+    "H9":  "PASS",
+    "H10": "PASS"
+  },
+
+  "h1_fail": {
+    "H1":  "FAIL",
+    "H2":  "FAIL",
+    "H3":  "FAIL",
+    "H4":  "FAIL",
+    "H5":  "FAIL",
+    "H9":  "FAIL",
+    "H10": "FAIL"
+  },
+
+  "h2_fail": {
+    "H1":  "PASS",
+    "H2":  "FAIL",
+    "H3":  "PASS",
+    "H4":  "PASS",
+    "H5":  "PASS",
+    "_h9_note": "Lowering R8+S=1.80 puts it below R_JEPA_brain=1.90, so (R8+S) > R_JEPA_brain fails; this is the correct side-effect of the H2-fail mechanism and is recorded here for traceability.",
+    "H9":  "FAIL",
+    "H10": "PASS"
+  },
+
+  "h3_fail": {
+    "H1":  "PASS",
+    "H2":  "PASS",
+    "H3":  "FAIL",
+    "H4":  "PASS",
+    "H5":  "PASS",
+    "H9":  "PASS",
+    "H10": "PASS"
+  },
+
+  "h4_fail": {
+    "H1":  "PASS",
+    "H2":  "PASS",
+    "H3":  "PASS",
+    "H4":  "FAIL",
+    "H5":  "PASS",
+    "H9":  "PASS",
+    "H10": "PASS"
+  },
+
+  "h5_fail": {
+    "H1":  "PASS",
+    "H2":  "PASS",
+    "H3":  "PASS",
+    "H4":  "PASS",
+    "H5":  "FAIL",
+    "H9":  "PASS",
+    "H10": "PASS"
+  },
+
+  "h9_fail": {
+    "H1":  "PASS",
+    "H2":  "PASS",
+    "H3":  "PASS",
+    "H4":  "PASS",
+    "H5":  "PASS",
+    "H9":  "FAIL",
+    "H10": "PASS"
+  },
+
+  "h10_fail": {
+    "H1":  "PASS",
+    "H2":  "PASS",
+    "H3":  "PASS",
+    "H4":  "PASS",
+    "H5":  "PASS",
+    "H9":  "PASS",
+    "H10": "FAIL"
+  }
+}

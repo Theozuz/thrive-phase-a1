@@ -1,0 +1,36 @@
+{
+  "mode": "smoke_test",
+  "h8": {
+    "hypothesis": "H8 (\u00a711.4) \u2014 Stage-3 \u00a72.16 components work as designed (optional)",
+    "test": "Triple pass/fail per sub-endpoint, no aggregate (\u00a711.7)",
+    "E_curiosity": {
+      "sub_endpoint": "E_curiosity",
+      "value": 0.42,
+      "threshold": 0.3,
+      "test": "Pearson(r_int(t), DeltaF_bar(t+1)) > 0.3",
+      "passed": true
+    },
+    "E_equilibration": {
+      "sub_endpoint": "E_equilibration",
+      "value": 73.0,
+      "threshold": 50,
+      "trigger_cycle": 1450,
+      "ive_drop_cycle": 1523,
+      "test": "trigger fires >= 50 cycles before IVE accuracy drop",
+      "passed": true
+    },
+    "E_autopoietic": {
+      "sub_endpoint": "E_autopoietic",
+      "value": 0.93,
+      "threshold": 0.9,
+      "false_alarm_rate": 0.04,
+      "fa_threshold": 0.05,
+      "n_breaches": 25,
+      "test": "structural-breach detection >= 0.90 at FA <= 0.05",
+      "passed": true
+    },
+    "n_passing": 3,
+    "n_skipped": 0
+  },
+  "smoke_test_passed": true
+}

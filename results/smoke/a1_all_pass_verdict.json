@@ -1,0 +1,161 @@
+{
+  "provenance": {
+    "git_commit": "GIT_UNAVAILABLE",
+    "script_sha256": "0bd6b2e4332061dcf13f36e19ad12226429403764de2a60558fd7a87c82b0792",
+    "timestamp_utc": "2026-06-06T17:42:37.557573+00:00",
+    "include_rfm": true,
+    "n_rows": 28340,
+    "n_subjects": 109,
+    "n_folds": 5
+  },
+  "h1": {
+    "hypothesis": "H1 (Claim C1) \u2014 Sheaf coherence is discriminative",
+    "test": "Paired BEST (S-TTSA vs S-rand at S0)",
+    "n_subjects": 109,
+    "mean_sttsa": 0.7172585752528309,
+    "mean_srand": 0.569623087682012,
+    "cohens_d": 4.627431635129027,
+    "BF10": 3.222e+71,
+    "p_one_sided": 2.8784405925656645e-75,
+    "ci_95": [
+      0.14178989125790073,
+      0.15325119213603486
+    ],
+    "threshold": 3.0,
+    "passed": true,
+    "halt_if_fail": true
+  },
+  "h2": {
+    "hypothesis": "H2 (Claim C2) \u2014 Sheaf layer recovers information (vs R8)",
+    "test": "Paired one-sided t-test ((R8+S) vs R8 at S0)",
+    "n_subjects": 109,
+    "mean_r8s": 0.8859320891051008,
+    "mean_r8": 0.851960660534321,
+    "cohens_d": 1.9167265268694442,
+    "p_one_sided": 2.0022820510101328e-38,
+    "BF10": 1.210987155963303e+35,
+    "ci_95": [
+      0.031065923972365964,
+      0.03737412236794898
+    ],
+    "threshold_d": 0.2,
+    "threshold_alpha": 0.05,
+    "passed": true
+  },
+  "h3": {
+    "hypothesis": "H3 (Claim C4) \u2014 Sheaf coherence degrades gracefully",
+    "test": "rmANOVA: representation x stressor interaction + Holm pairwise",
+    "F_interaction": 352.73362713088886,
+    "p_interaction": 0.0,
+    "pairwise_holm": [
+      {
+        "stressor": "S0",
+        "n": 109,
+        "d": -4.4413355444036995,
+        "p_raw": 1.0,
+        "p_holm": 1.0,
+        "rejected": false
+      },
+      {
+        "stressor": "S1",
+        "n": 109,
+        "d": -2.1092815027303957,
+        "p_raw": 1.0,
+        "p_holm": 1.0,
+        "rejected": false
+      },
+      {
+        "stressor": "S2",
+        "n": 109,
+        "d": -1.1824024348265711,
+        "p_raw": 1.0,
+        "p_holm": 1.0,
+        "rejected": false
+      },
+      {
+        "stressor": "S3",
+        "n": 109,
+        "d": -5.262937696769118,
+        "p_raw": 1.0,
+        "p_holm": 1.0,
+        "rejected": false
+      }
+    ],
+    "threshold_alpha": 0.05,
+    "passed": true
+  },
+  "h4": {
+    "hypothesis": "H4 (\u00a79.5) \u2014 Sheaf adds value over foundation model",
+    "test": "Paired one-sided t-test ((R_FM+S) vs R_FM at S0)",
+    "n_subjects": 109,
+    "mean_rfms": 0.9188207177816989,
+    "mean_rfm": 0.8948978619400466,
+    "cohens_d": 2.204488405390748,
+    "p_one_sided": 9.500237361523911e-44,
+    "BF10": 2.188e+40,
+    "ci_95": [
+      0.022024559362235203,
+      0.0261536147823792
+    ],
+    "threshold_d": 0.2,
+    "threshold_alpha": 0.05,
+    "passed": true
+  },
+  "joint_h2_h4": {
+    "h2_passed": true,
+    "h4_passed": true,
+    "verdict": "STRONGEST: sheaf adds value over both R8 and R_FM baselines. Proceed with full v5.5 architecture.",
+    "action": "proceed_full_architecture"
+  },
+  "h5": {
+    "hypothesis": "H5 (\u00a710.4) \u2014 Sheaf adds value over cross-domain JEPA (LeWM)",
+    "test": "Paired one-sided t-test ((R8+S) vs R_JEPA at S0)",
+    "n_subjects": 109,
+    "mean_r8s": 0.8859320891051008,
+    "mean_rjepa": 0.8377608750323755,
+    "cohens_d": 2.5537597052316636,
+    "p_one_sided": 1.2727781576855848e-49,
+    "BF10": 1.3818e+46,
+    "ci_95": [
+      0.045056131358577105,
+      0.05165831226967109
+    ],
+    "threshold_d": 0.2,
+    "threshold_alpha": 0.05,
+    "passed": true
+  },
+  "h9": {
+    "hypothesis": "H9 (\u00a712.4) \u2014 Sheaf adds value over domain-specific JEPA (Brain-/Signal-JEPA)",
+    "test": "Paired one-sided t-test ((R8+S) vs R_JEPA_brain at S0)",
+    "n_subjects": 109,
+    "mean_r8s": 0.8859320891051008,
+    "mean_rjepa_br": 0.8628487848263766,
+    "cohens_d": 1.5431184819351151,
+    "p_one_sided": 8.605080157470513e-31,
+    "BF10": 3.458642201834863e+27,
+    "ci_95": [
+      0.020552763871215903,
+      0.02609213456529636
+    ],
+    "threshold_d": 0.2,
+    "threshold_alpha": 0.05,
+    "passed": true
+  },
+  "h10": {
+    "hypothesis": "H10 (\u00a713.4) \u2014 Cellular cohomology earns value over graph-Laplacian (cohomology-isolation)",
+    "test": "Paired one-sided t-test ((R8+S) vs R_GL at S0)",
+    "n_subjects": 109,
+    "mean_r8s": 0.8859320891051008,
+    "mean_rgl": 0.8065532728076312,
+    "cohens_d": 3.147684887736913,
+    "p_one_sided": 2.3389207883569585e-58,
+    "BF10": 5.972e+54,
+    "ci_95": [
+      0.07444432578466173,
+      0.08398372105328959
+    ],
+    "threshold_d": 0.2,
+    "threshold_alpha": 0.05,
+    "passed": true
+  }
+}

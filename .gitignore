@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+*.egg-info/
+
+# Conda envs (not committed)
+.env/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# MOABB cache (large, regenerable)
+~/mne_data/
+~/moabb_data/
+
+# Results — keep folder structure but not large outputs
+results/raw/*.npz
+results/raw/*.csv
+results/raw/*.parquet
+results/phase_a7/*.json
+
+# Smoke-test outputs: commit verdicts + manifests + smoke summaries,
+# but NOT the 109 per-subject CSVs that synth_a1 emits per scenario
+# (regenerable; just bloat). Discrimination-matrix verification needs only
+# the verdict JSONs, not the raw CSVs.
+results/smoke/**/accuracy_*.csv
+results/smoke/*.npz
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Local manifest scratch
+manifest_A1.local.json
+tmp.log

@@ -1,0 +1,24 @@
+{
+  "_meta": {
+    "schema_version": "registered_hashes_v1",
+    "description": "SHA-256 of each locked artefact at OSF registration time. Populated by scripts/compute_hashes.sh. Once OSF DOI is issued, any change here is a registration integrity violation.",
+    "populated_at": "<ISO 8601 UTC, set by compute_hashes.sh>",
+    "git_commit_at_registration": "<git rev-parse HEAD at registration>"
+  },
+
+  "a0_preflight.py":                  "<placeholder - run scripts/compute_hashes.sh>",
+  "rfm_features.py":                  "<placeholder>",
+  "rjepa_features.py":                "<placeholder>",
+  "rjepa_brain_features.py":          "<placeholder>",
+  "rgl_features.py":                  "<placeholder>",
+  "analyse_a1_factorial.py":          "<placeholder>",
+  "analyse_a7_factorial.py":          "<placeholder - run scripts/compute_hashes.sh>",
+  "analyse_b2_h8.py":                 "<placeholder - run scripts/compute_hashes.sh>",
+  "synth_a1.py":                      "<placeholder>",
+  "phase_b1_simulator.py":            "<placeholder>",
+  "phase_a7_acp_twin.py":             "<placeholder>",
+  "phase_a7_ensemble.py":             "<placeholder>",
+  "phase_b2_stage3.py":               "<placeholder>",
+  "environment.yml":                  "<placeholder>",
+  "expected_discrimination_matrix.json": "<placeholder>"
+}

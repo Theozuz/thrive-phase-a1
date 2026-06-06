@@ -1,0 +1,47 @@
+{
+  "schema_version":                 "phase_a1_manifest_v1",
+  "_status":                        "PRE-OSF-LOCK draft; fill in at OSF DOI issuance per docs/(C)-OSF-Submission-Pack.md §4.",
+
+  "osf_doi":                        "<10.17605/OSF.IO/...>",
+  "registration_timestamp_utc":     "<ISO 8601>",
+  "git_commit_at_registration":     "<HEAD SHA at pre-registration-locked tag>",
+  "git_tag":                        "pre-registration-locked",
+  "master_seed":                    42,
+
+  "master_env_yml_sha256":          "<populated by scripts/compute_hashes.sh>",
+  "pandas_reconciliation_log":      "A-0 originally pinned pandas 2.1; master pins 2.2; changelog-verified safe for A-0 operations.",
+
+  "a0_script_sha256":               "<populated>",
+  "r_fm_script_sha256":             "<populated>",
+  "r_jepa_script_sha256":           "<populated>",
+  "r_jepa_brain_script_sha256":     "<populated>",
+  "r_gl_script_sha256":             "<populated>",
+  "a1_analysis_script_sha256":      "<populated>",
+  "a1_synthetic_script_sha256":     "<populated>",
+  "phase_b1_script_sha256":         "<populated>",
+  "phase_a7_script_sha256":         "<populated>",
+  "phase_a7_ensemble_script_sha256":"<populated>",
+  "phase_b2_extension_sha256":      "<populated>",
+
+  "shared_graph_topology_sha256":   "<populated by rgl_features.py + phase_a7_acp_twin.py cross-check>",
+  "lcm_checkpoint_md5":             "<populated at first foundation-model download>",
+  "eegformer_checkpoint_md5":       "<populated at first foundation-model download>",
+
+  "smoke_all_pass_sha256":          "<populated after run_smoke_tests.sh>",
+  "smoke_h1_fail_sha256":           "<populated>",
+  "smoke_h2_fail_sha256":           "<populated>",
+  "smoke_h3_fail_sha256":           "<populated>",
+  "smoke_h4_fail_sha256":           "<populated>",
+
+  "gate_threshold_physionet":       0.633,
+  "gate_threshold_bci_iv_2a":       0.68,
+  "moabb_published_physionet":      0.6728,
+  "moabb_published_bci_iv_2a":      0.7197,
+  "moabb_baseline_correction_log":  "v2.0-draft errata of May 2026: original 92% / 78% gate values were row-confusions with PhysionetMI right-hand-vs-feet (93.15%) and were corrected to verified MOABB-published TS+LR values 67.28% / 71.97% before OSF lock. See docs/(C)-Phase-A-Experiment-Revised.md §3 for full errata.",
+
+  "phase_a_zero_paper_check_doc":   "docs/(C)-16-Seely-Equivalence-Independent-Derivation.md",
+  "phase_a_zero_completed_utc":     "2026-05-XX",
+
+  "ci_workflow_path":               ".github/workflows/preregistration-verify.yml",
+  "ci_last_green_commit":           "<populated after first green CI run>"
+}

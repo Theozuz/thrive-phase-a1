@@ -1,0 +1,10 @@
+{
+  "mode": "smoke_test",
+  "h6_passed": true,
+  "h7_passed": true,
+  "joint": {
+    "verdict": "STRONGEST",
+    "action": "Full dynamical-architecture justification; H6+H7 both pass."
+  },
+  "smoke_test_passed": true
+}

@@ -1,0 +1,32 @@
+{
+  "architecture": "Graph-Laplacian-only baseline (no sheaf structure)",
+  "n_nodes": 40,
+  "n_edges": 80,
+  "top_k_eigenmodes": 16,
+  "channels_per_neural_node": 2,
+  "target_dim": 8,
+  "n_train_epochs": 20,
+  "n_test_epochs": 10,
+  "pca_explained_variance_ratio": [
+    0.18561148332764074,
+    0.1597848742796382,
+    0.15255171991915822,
+    0.11657937590464773,
+    0.10489514752690055,
+    0.08406100038415601,
+    0.06906051822486661,
+    0.03666922583919663
+  ],
+  "git_commit": "GIT_UNAVAILABLE",
+  "script_sha256": "1a45ba50d58eeb5b828a7e735f6ff0765f70daaf1505a0bed5d30e2feb28d966",
+  "numpy_version": "2.2.6",
+  "deterministic": true,
+  "seed": 42,
+  "smoke_test": true,
+  "subject": "SMOKE",
+  "fold": 0,
+  "input_train": "<synthetic>",
+  "input_test": "<synthetic>",
+  "output": "rgl_smoke.npz",
+  "timestamp_utc": "2026-06-06T22:46:39.408004+00:00"
+}

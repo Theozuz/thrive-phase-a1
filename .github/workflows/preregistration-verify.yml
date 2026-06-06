@@ -1,0 +1,77 @@
+name: Pre-Registration Verify
+
+# Three-gate CI for the locked-artefact set:
+#   1. Hash gate           - every script's SHA-256 matches registered_hashes.json
+#   2. Smoke-test gate     - every script's --smoke-test mode runs end-to-end
+#   3. Discrimination gate - 5/5 synthetic scenarios produce expected verdicts
+#
+# Branch protection on `main` should require this workflow to be green before
+# any merge. See docs/(C)-OSF-Engineering-Runbook.md §7.3.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up miniconda
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          environment-file: environment.yml
+          activate-environment: thrive_phase_a1
+          auto-activate-base: false
+          miniforge-version: latest
+
+      - name: Compile all locked scripts (syntax check)
+        shell: bash -l {0}
+        run: |
+          python -m py_compile a0_preflight.py rfm_features.py \
+              rjepa_features.py rjepa_brain_features.py rgl_features.py \
+              analyse_a1_factorial.py synth_a1.py \
+              phase_b1_simulator.py phase_a7_acp_twin.py \
+              phase_a7_ensemble.py phase_b2_stage3.py
+          echo "Gate 0 - syntax: passed"
+
+      - name: Hash gate
+        shell: bash -l {0}
+        run: |
+          python scripts/verify_script_hashes.py registered_hashes.json
+          echo "Gate 1 - hash:   passed"
+
+      - name: Smoke-test gate
+        shell: bash -l {0}
+        run: |
+          bash scripts/run_smoke_tests.sh
+          echo "Gate 2 - smoke:  passed"
+
+      - name: Discrimination-matrix gate
+        shell: bash -l {0}
+        run: |
+          bash scripts/verify_discrimination.sh
+          echo "Gate 3 - matrix: passed"
+
+      - name: Summary
+        if: success()
+        shell: bash -l {0}
+        run: |
+          echo
+          echo "=================================================="
+          echo "Pre-registration verify: 4/4 gates passed"
+          echo "Ready for OSF lock-in (with PI sign-offs)"
+          echo "=================================================="
+
+      - name: Upload smoke-test outputs as artefact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoke-test-outputs
+          path: results/smoke/
+          retention-days: 30
