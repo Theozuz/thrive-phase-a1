@@ -1,24 +1,17 @@
 {
-  "_meta": {
-    "schema_version": "registered_hashes_v1",
-    "description": "SHA-256 of each locked artefact at OSF registration time. Populated by scripts/compute_hashes.sh. Once OSF DOI is issued, any change here is a registration integrity violation.",
-    "populated_at": "<ISO 8601 UTC, set by compute_hashes.sh>",
-    "git_commit_at_registration": "<git rev-parse HEAD at registration>"
-  },
-
-  "a0_preflight.py":                  "<placeholder - run scripts/compute_hashes.sh>",
-  "rfm_features.py":                  "<placeholder>",
-  "rjepa_features.py":                "<placeholder>",
-  "rjepa_brain_features.py":          "<placeholder>",
-  "rgl_features.py":                  "<placeholder>",
-  "analyse_a1_factorial.py":          "<placeholder>",
-  "analyse_a7_factorial.py":          "<placeholder - run scripts/compute_hashes.sh>",
-  "analyse_b2_h8.py":                 "<placeholder - run scripts/compute_hashes.sh>",
-  "synth_a1.py":                      "<placeholder>",
-  "phase_b1_simulator.py":            "<placeholder>",
-  "phase_a7_acp_twin.py":             "<placeholder>",
-  "phase_a7_ensemble.py":             "<placeholder>",
-  "phase_b2_stage3.py":               "<placeholder>",
-  "environment.yml":                  "<placeholder>",
-  "expected_discrimination_matrix.json": "<placeholder>"
+  "a0_preflight.py": "1d3dd68f8458a63b42eef5b322835c278beabab2fe7871e942cec667ba1185b3",
+  "analyse_a1_factorial.py": "0bd6b2e4332061dcf13f36e19ad12226429403764de2a60558fd7a87c82b0792",
+  "analyse_a7_factorial.py": "c5a734a8387881613af4dc174c60cb4197c5680453e3fc1335710c2ae0717f34",
+  "analyse_b2_h8.py": "97a2019ca6444cd40c8377928785faba9b512e215d138efddaa92fa154e83814",
+  "environment.yml": "325a5be1003b5622cceea08367ffe39ed993f5b091a48ea1c095bfa9031d2ae4",
+  "expected_discrimination_matrix.json": "ce00af0638440e654a1f330bcf4e97bef833c479b6445e3ef4a1cac674dec071",
+  "phase_a7_acp_twin.py": "3a979894cec32a2acd7cd8b4714c7ac993eeeb850ff0d09ea3c175beb14bc9a1",
+  "phase_a7_ensemble.py": "1206ff1e5420675a47dbd7e19d66e6ae89f204714a47f54e83473741c4aa5a8c",
+  "phase_b1_simulator.py": "0ef9c8eaf4e02149a2c692785d5690e1d152fcd8068249d5aead8b6b2e8fa0ff",
+  "phase_b2_stage3.py": "d8291462046707d4d2578a4faede64095c12c95d9fc84e09f6d4d1ee669903b1",
+  "rfm_features.py": "8134e4ec2026f24c12e739f6a93d2d0826275409542b7a0f29a38b9c64e03b31",
+  "rgl_features.py": "1a45ba50d58eeb5b828a7e735f6ff0765f70daaf1505a0bed5d30e2feb28d966",
+  "rjepa_brain_features.py": "e79262dd7e45c3b010e42ae527524b23cce5112fbddeba2c76635a257366ad3a",
+  "rjepa_features.py": "6dcf1e7a9ea0dd92776a6a1ede02b52b767dea25995ea28793872369b03266bb",
+  "synth_a1.py": "e3186e0cbd998b5f8565f67e6bb843acb4916b329341469fc5c09faf5754eaaf"
 }
