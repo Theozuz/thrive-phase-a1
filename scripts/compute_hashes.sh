@@ -32,7 +32,11 @@ for fn in LOCKED:
         print(f"WARN: missing {fn}")
         manifest[fn] = ""
         continue
-    h = hashlib.sha256(p.read_bytes()).hexdigest()
+    # Content-only hash: normalise line endings so the hash is deterministic
+    # across Windows (CRLF) and Unix (LF). Must match verify_script_hashes.py.
+    raw = p.read_bytes()
+    normalised = raw.replace(b"\r\n", b"\n")
+    h = hashlib.sha256(normalised).hexdigest()
     manifest[fn] = h
     print(f"{h}  {fn}")
 

@@ -16,7 +16,16 @@ from pathlib import Path
 
 
 def sha256_file(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    """Content-only SHA-256: normalises line endings to LF before hashing.
+
+    This makes the hash deterministic across platforms (Windows CRLF vs
+    Unix LF). The hash is still tamper-detection for the file's logical
+    content; the only thing it intentionally ignores is line-ending
+    encoding, which has no semantic effect on Python / YAML / JSON.
+    """
+    raw = path.read_bytes()
+    normalised = raw.replace(b"\r\n", b"\n")
+    return hashlib.sha256(normalised).hexdigest()
 
 
 def main(manifest_path: str) -> int:
