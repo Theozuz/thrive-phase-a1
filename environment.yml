@@ -29,6 +29,7 @@ dependencies:
 
   # Pip-only packages
   - pip:
+      - "numpy<2.0"
       - moabb>=1.4.0
       - pyriemann>=0.5
 
