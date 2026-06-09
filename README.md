@@ -36,8 +36,8 @@ cleanly with `python -m py_compile`.
 | **8-scenario discrimination matrix verified end-to-end (8/8)** | ✅ |
 | A-7 H6/H7 verdict analyser smoke-test passed | ✅ |
 | B-2 H8 verdict analyser smoke-test passed | ✅ |
-| Conda env created | ⏳ (run `conda env create -f environment.yml`) |
-| SHA-256 hashes computed | ⏳ (run `bash scripts/compute_hashes.sh`) |
+| Conda env created | ✅ (run `conda env create -f environment.yml`) |
+| SHA-256 hashes computed | ✅ (run `bash scripts/compute_hashes.sh`) |
 | CI workflow on GitHub Actions | ⏳ (push to GitHub first) |
 | OSF DOI | ⏳ |
 | Phase A-7 full simulation | ⏳ |
