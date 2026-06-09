@@ -26,7 +26,7 @@ Locked invariants:
     - Holm-Bonferroni correction across per-hypothesis endpoint p-values
     - Joint H6/H7 verdict per §11.6 of the OSF prereg
 
-Author: Theo Cognat (under direction with Claude, Anthropic)
+Author: Theo Zuzarte (under direction with Claude, Anthropic)
 Licence: MIT
 """
 
@@ -97,11 +97,15 @@ def paired_bf10(x: np.ndarray, y: np.ndarray, direction_sign: int) -> float:
 
 
 def paired_one_sided_p(x: np.ndarray, y: np.ndarray, direction_sign: int) -> float:
-    """One-sided paired p-value in the specified direction."""
-    if direction_sign >= 0:
-        return float(pg.ttest(x, y, paired=True, alternative="greater")["p_val"].iloc[0])
-    else:
-        return float(pg.ttest(x, y, paired=True, alternative="less")["p_val"].iloc[0])
+    """One-sided paired p-value in the specified direction.
+
+    pingouin 0.5.x uses 'p-val' (hyphen); 0.6+ uses 'p_val' (underscore).
+    Handle both for cross-version compatibility.
+    """
+    alternative = "greater" if direction_sign >= 0 else "less"
+    result = pg.ttest(x, y, paired=True, alternative=alternative)
+    col = "p_val" if "p_val" in result.columns else "p-val"
+    return float(result[col].iloc[0])
 
 
 def holm_bonferroni(p_values: List[float]) -> Tuple[List[float], List[bool]]:
