@@ -43,3 +43,8 @@ results/smoke/*.npz
 # Local manifest scratch
 manifest_A1.local.json
 tmp.log
+
+# Smoke test outputs (regenerated per run; not part of locked artifact set)
+results/smoke/
+rgl_smoke.npz
+rgl_smoke_manifest.json
