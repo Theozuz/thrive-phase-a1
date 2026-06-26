@@ -1,183 +1,237 @@
 # thrIVE Phase A-1 — Pre-Registered Sheaf-Coherence Falsification Test
 
+[![CI](https://github.com/<user>/<repo>/actions/workflows/preregistration-verify.yml/badge.svg)](https://github.com/<user>/<repo>/actions/workflows/preregistration-verify.yml)
+[![DOI](https://img.shields.io/badge/OSF-DOI:%20%3CTBD%3E-blue)](https://doi.org/<DOI>)
 [![Licence](https://img.shields.io/badge/licence-MIT-green)](LICENSE)
-[![Status](https://img.shields.io/badge/status-pre--OSF--lock-yellow)]()
 
 **What this is.** A pre-registered factorial test of whether unsupervised
 Two-Timescale Stochastic Approximation (TTSA) learning on the predictive-coding
 energy of a cellular sheaf produces motor-imagery-discriminative coherence on
-real EEG. Six baselines, ten confirmatory hypotheses (H1–H10), five
-amendments, six pre-committed alternative-architectural-identity outcome
-paths, all locked at OSF before any data is touched.
+real EEG. Six baselines, ten confirmatory hypotheses (H1–H10), five amendments,
+six pre-committed alternative-architectural-identity outcome paths, all locked
+at OSF before any data is touched.
 
-**Headline.** Either thrIVE's sheaf / IVE / dynamical architectural
-commitments earn their complexity against the field's strongest baselines, or
-one of the six pre-committed fall-back identities (no-sheaf, IVE-only-sheaf,
-graph-Laplacian-spectral, domain-specific-JEPA, mainstream-ensemble,
-fundamental-halt) is the architecture the data actually supports. The PI
-commits to publishing the surviving identity regardless of which outcome
-cluster occurs.
-
----
-
-## Status — what's here now
-
-This repository was assembled from the canonical Markdown specifications in
-the parent vault on **2026-06-04**. All 11 locked-artefact Python scripts
-were extracted via `scripts/extract_python.py` and confirmed to compile
-cleanly with `python -m py_compile`.
-
-| Item | Status |
-|---|---|
-| **All 13 locked-artefact scripts extracted** (11 + new A-7 / B-2 analysers) | ✅ |
-| All 13 scripts compile (`py_compile`) | ✅ |
-| `environment.yml` master conda env | ✅ |
-| A-0 smoke test execution-verified | ✅ |
-| **8-scenario discrimination matrix verified end-to-end (8/8)** | ✅ |
-| A-7 H6/H7 verdict analyser smoke-test passed | ✅ |
-| B-2 H8 verdict analyser smoke-test passed | ✅ |
-| Conda env created | ✅ (run `conda env create -f environment.yml`) |
-| SHA-256 hashes computed | ✅ (run `bash scripts/compute_hashes.sh`) |
-| CI workflow on GitHub Actions | ⏳ (push to GitHub first) |
-| OSF DOI | ⏳ |
-| Phase A-7 full simulation | ⏳ |
+**The headline result this experiment can deliver.** Either thrIVE's sheaf /
+IVE / dynamical architectural commitments earn their representational complexity
+against the field's strongest baselines, or one of the six pre-committed
+fall-back identities (no-sheaf, IVE-only-sheaf, graph-Laplacian-spectral,
+domain-specific-JEPA, mainstream-ensemble, fundamental-halt) is the architecture
+the data actually supports. The PI commits to publishing the surviving identity
+regardless of which outcome cluster occurs.
 
 ---
 
 ## 30-second tour
 
-| You want to | Open / run |
+| You want to | Open |
 |---|---|
 | Read the full pre-registration | `docs/(C)-OSF-Preregistration-Phase-A1.md` |
 | Read the experimental design | `docs/(C)-Phase-A-Experiment-Revised.md` |
-| Read the engineering execution sequence | `docs/(C)-OSF-Engineering-Runbook.md` |
-| Verify all 11 scripts compile | `python -m py_compile *.py` |
-| Run all synthetic smoke tests | `bash scripts/run_smoke_tests.sh` |
-| Run the A-0 preflight smoke test | `python a0_preflight.py --smoke-test --output results/smoke/a0_smoke.json` |
-| Run the A-0 single-subject sanity (touches MOABB cache for PhysionetMI subject 1) | `python a0_preflight.py --dataset physionet --single-subject 1 --output results/smoke/a0_physionet_subject1.json` |
-| Verify the 5-scenario discrimination matrix | `bash scripts/verify_discrimination.sh` |
-| Compute SHA-256s for the OSF manifest | `bash scripts/compute_hashes.sh` |
+| Read the joint-interpretation outcome matrices | §9.6, §10.5, §11.6, §12.5, §13.5 of the OSF pre-registration |
+| See what each H1–H10 failure means architecturally | §2 "Alternative-architectural-identity outcome paths" of the OSF pre-registration |
+| Verify a script SHA-256 against the registered hash | `python scripts/verify_script_hashes.py` |
+| Run the gating preflight on PhysionetMI | `python a0_preflight.py --dataset physionet --output a0_physionet.json` |
+| Run the gating preflight on BCI Competition IV-2a | `python a0_preflight.py --dataset bci_iv_2a --output a0_bci_iv_2a.json` |
+| Run all five synthetic smoke-test scenarios | `bash scripts/run_smoke_tests.sh` |
+| Verify the H1–H10 discrimination matrix | `python scripts/verify_discrimination_matrix.py` |
+| Re-derive the Seely equivalence | `docs/(C)-16-Seely-Equivalence-Independent-Derivation.md` |
 
 ---
 
-## Setup (Windows / macOS / Linux)
+## What we test
 
-```bash
-# 1. Install miniconda or mambaforge if not already installed.
-# 2. Create the master env:
+Phase A-1 is a 5 × 4 within-subject factorial design extended by five
+pre-submission amendments to a 14-level Factor 1 × 4-level Factor 2 = 56
+conditions per subject, evaluated on 109 subjects of the PhysioNet
+EEG Motor Movement/Imagery Dataset (Schalk et al., 2004) under the Varbu
+et al. (2024) annotation curation. **Ten confirmatory hypotheses** (H1–H10),
+each with a pre-registered strength criterion (BF₁₀ > 3 or Cohen's d > 0.2),
+test the load-bearing architectural claims:
+
+| H | Tests | What success means |
+|---|---|---|
+| **H1** | S-TTSA > S-rand at S0 | Unsupervised predictive-coding-energy TTSA produces discriminative sheaf coherence |
+| **H2** | (R8+S) > R8 at S0 | Sheaf augments Riemannian tangent features |
+| **H3** | Sheaf graceful-degradation under S1/S2 stressors | Sheaf is more robust than R8 |
+| **H4** | (R_FM+S) > R_FM | Sheaf adds value over an EEG foundation model |
+| **H5** | (R8+S) > R_JEPA (LeWM cross-domain) | Sheaf beats cross-domain JEPA |
+| **H6** | thrIVE-dynamic > R_JEPA-streaming | Dynamical architecture beats streaming LeWM |
+| **H7** | thrIVE-composite > BCI mainstream ensemble | Dynamical architecture beats deployable BCI baseline |
+| **H8 (optional)** | Stage-3 §2.16 components work as designed | Curiosity / equilibration / autopoietic mechanisms validate |
+| **H9** | (R8+S) > R_JEPA_brain (domain-specific) | Sheaf beats domain-appropriate JEPA |
+| **H10** | (R8+S) > R_GL (same topology, no cohomology) | Cellular cohomology — not just graph topology — earns empirical value |
+
+If H1 fails, the experiment halts and the sheaf layer is removed from the
+thrIVE architecture. Phase A-2, A-3, A-4 are not run. Published as a null
+result.
+
+---
+
+## The locked-artefact set (12 scripts)
+
+Every script in this repository carries a SHA-256 logged in the OSF manifest
+at registration time. Any post-registration modification requires a recorded
+OSF registration update. The CI workflow at `.github/workflows/preregistration-verify.yml`
+gates all three: hash verification, smoke-test execution, and discrimination-matrix
+verification — branch protection on `main` requires CI green before merge.
+
+| # | Script | Role | Smoke-test command |
+|---|---|---|---|
+| 1 | `a0_preflight.py` | MOABB Riemannian-tangent reference-pipeline **gate** | `python a0_preflight.py --smoke-test --output a0_smoke.json` |
+| 2 | `rfm_features.py` | Pre-trained EEG foundation-model features (R_FM) | `python rfm_features.py --smoke-test` |
+| 3 | `rjepa_features.py` | LeWM-style cross-domain JEPA (R_JEPA) | `python rjepa_features.py --smoke-test` |
+| 4 | `rjepa_brain_features.py` | Brain-/Signal-JEPA domain-specific (R_JEPA_brain) | `python rjepa_brain_features.py --smoke-test` |
+| 5 | `rgl_features.py` | Graph-Laplacian-only (R_GL — cohomology-isolation test) | `python rgl_features.py --smoke-test` |
+| 6 | `analyse_a1_factorial.py` | H1–H10 hypothesis tests + joint interpretation matrix | (driven by `synth_a1.py`) |
+| 7 | `synth_a1.py` | Synthetic A-1 scenarios for analysis-pipeline verification | `bash scripts/run_smoke_tests.sh` |
+| 8 | `.github/workflows/preregistration-verify.yml` | CI workflow — hash + smoke + matrix | runs on every commit |
+| 9 | `phase_b1_simulator.py` | THINK-mode harmonic-preservation simulator | `python phase_b1_simulator.py --smoke-test --n-seeds 3` |
+| 10 | `phase_a7_acp_twin.py` | Core dynamical-architecture digital twin | `python phase_a7_acp_twin.py --smoke-test` |
+| 11 | `phase_a7_ensemble.py` | Locked BCI mainstream ensemble baseline | `python phase_a7_ensemble.py --smoke-test` |
+| 12 | `phase_b2_stage3.py` | Stage-3 §2.16 component validation (optional) | `python phase_b2_stage3.py --smoke-test` |
+
+The SHA-256s shipped at registration are in `registered_hashes.json`. Verify
+locally with:
+
+\`\`\`bash
+python scripts/verify_script_hashes.py registered_hashes.json
+\`\`\`
+
+---
+
+## The Phase A-0 gate (the load-bearing entry)
+
+Before any H1–H10 result can be interpreted, the Riemannian-tangent reference
+pipeline must reproduce the MOABB-published benchmark:
+
+| Dataset | Gate threshold | MOABB-published TS+LR | Tolerance |
+|---|---|---|---|
+| PhysionetMI binary L/R MI | **grand-average ≥ 0.633** | 67.28 ± 19.19 % | 4 pp (~σ/5) |
+| BCI Competition IV-2a 4-class | **grand-average ≥ 0.68** | 71.97 ± 15.46 % | 4 pp (~σ/5) |
+
+**Run the gate:**
+
+\`\`\`bash
+python a0_preflight.py --dataset physionet --output a0_physionet.json
+python a0_preflight.py --dataset bci_iv_2a --output a0_bci_iv_2a.json
+\`\`\`
+
+Both JSONs must contain `"gate_passed": true`. If either fails, the H1–H10
+results are uninterpretable until the reference pipeline is repaired per the
+decision tree in `docs/(C)-A0-Preflight-Reference-Pipeline.md` §"Gate-failure
+decision tree". Any repair must be recorded as an OSF registration update
+before re-attempting the gate.
+
+> **Errata note (May 2026).** The originally-drafted gate thresholds (≥0.90 /
+> ≥0.76, on the assumption of 92 % / 78 % published baselines) were spec-side
+> errors that confused the easier right-hand-vs-feet binary paradigm
+> (MOABB-published 93.15 %) with the standard left-vs-right binary paradigm
+> the experiment actually uses (67.28 %). The corrected gates were verified
+> against [the official MOABB results page](https://moabb.neurotechx.com/docs/paper_results.html)
+> and Chevallier et al. (2024) arXiv:2404.15319 Appendix D, Tables 6–10, before
+> OSF lock. Full errata in `docs/(C)-Phase-A-Experiment-Revised.md` §3 and
+> in the Stage-Dependency Trace at `docs/(C)-09-Stage-Dependency-Trace-Post-MOABB-Correction.md`.
+
+---
+
+## Environment
+
+Master conda environment at the repository root:
+
+\`\`\`bash
 conda env create -f environment.yml
 conda activate thrive_phase_a1
+\`\`\`
 
-# 3. Verify everything is wired up:
-python -c "import numpy, scipy, sklearn, pandas, mne, pingouin, torch; \
-           import moabb, pyriemann; print('all imports OK')"
-
-# 4. Smoke-test the architecture (no PhysioNet data touched):
-bash scripts/run_smoke_tests.sh
-```
-
-On Windows, prefer **Miniforge3** over Anaconda for the conda channel
-defaults to match `environment.yml`.
+Per-script subset environments (`environment_<script>.yml`) are kept available
+for partial-environment reproduction on minimal CI runners. See
+`docs/(C)-Master-Environment.md` for the dependency map.
 
 ---
 
-## Repository structure
+## What this study can falsify
 
-```
-.
-├── README.md                              # this file
-├── LICENSE
-├── environment.yml                        # master conda env
-├── a0_preflight.py                        # the load-bearing gate
-├── rfm_features.py                        # R_FM (foundation-model baseline)
-├── rjepa_features.py                      # R_JEPA (cross-domain JEPA)
-├── rjepa_brain_features.py                # R_JEPA_brain (domain-specific JEPA)
-├── rgl_features.py                        # R_GL (graph-Laplacian cohomology-isolation)
-├── analyse_a1_factorial.py                # H1, H2, H3, H4, H5, H9, H10 verdicts
-├── analyse_a7_factorial.py                # H6, H7 verdicts (Phase A-7 twin + ensemble + LeWM)
-├── analyse_b2_h8.py                       # H8 triple verdict (optional, Phase B-2)
-├── synth_a1.py                            # synthetic-scenario generator (8 scenarios x 13 reps)
-├── phase_b1_simulator.py                  # THINK-mode harmonic preservation
-├── phase_a7_acp_twin.py                   # dynamical-architecture twin (telemetry source)
-├── phase_a7_ensemble.py                   # BCI mainstream ensemble baseline (telemetry source)
-├── phase_b2_stage3.py                     # Stage-3 component validation (optional, telemetry source)
-├── scripts/
-│   ├── extract_python.py                  # extract Python from (C) specs
-│   ├── verify_script_hashes.py            # CI hash gate
-│   ├── verify_discrimination_matrix.py    # CI discrimination-matrix gate
-│   ├── compute_hashes.sh                  # one-shot hash computation
-│   ├── run_smoke_tests.sh                 # one-shot smoke-test driver
-│   └── verify_discrimination.sh           # one-shot 5-scenario verifier
-├── docs/                                  # OSF supplementary materials (Markdown specs)
-├── results/
-│   ├── raw/                               # per-script per-subject outputs
-│   └── smoke/                             # synthetic-scenario outputs
-├── registered_hashes.json                 # SHA-256s at OSF lock time
-├── expected_discrimination_matrix.json    # truth table for H1–H10 on synth
-├── manifest_A1.json                       # OSF manifest (DOI, hashes, run state)
-└── .github/
-    └── workflows/
-        └── preregistration-verify.yml     # CI workflow
-```
+Six pre-committed alternative architectural identities, one per outcome
+cluster. Reviewers should read §2 of the OSF pre-registration for the formal
+mapping; the high-level summary:
 
----
-
-## What this repository can do *right now*
-
-Even before the conda env is created, you can:
-
-```bash
-# Confirm all 11 scripts are syntactically valid:
-python -m py_compile *.py && echo "all 11 compile"
-```
-
-After `conda env create -f environment.yml`:
-
-```bash
-# Synthetic smoke tests (no PhysioNet, no GPU, runs in minutes):
-bash scripts/run_smoke_tests.sh
-
-# Single-subject A-0 sanity on real PhysioNetMI data (~3 min):
-python a0_preflight.py --dataset physionet --single-subject 1 \
-       --output results/smoke/a0_physionet_subject1.json
-```
-
-If the single-subject sanity returns `grand_average` in the 0.55–0.85 range,
-the MOABB pipeline is operationally validated for the one subject and the
-architecture is **execution-ready for the Scope-A milestone** (synthetic
-smoke tests + single-subject sanity).
-
----
-
-## What this repository cannot yet do
-
-| | Why |
+| Outcome | Alternative identity thrIVE collapses to |
 |---|---|
-| Full Phase A-1 H1–H10 on PhysioNetMI | Pre-OSF-lock per §9.9 integrity statement; gated on OSF DOI |
-| Phase A-7 ACP twin full run | ~24 hours compute; run after OSF lock |
-| Real-time online inference | Specified for Phase B FPGA prototype (months out) |
-| Stage 2 prosthetic deployment | Gated on Phase A-1 H1 passing + Phase B hardware |
+| H1 fails | **No-sheaf** — Riemannian-only Stage 1 + IVE-without-Evidence-1 |
+| H1 passes, H2 fails | **IVE-only-sheaf** — sheaf retained only as IVE Evidence 1 |
+| H10 fails alone | **Graph-Laplacian-spectral** — cohomology decorative; flagged by external audit |
+| H5 + H9 both fail | **Domain-specific-JEPA** — Brain-/Signal-JEPA encoder spine |
+| H6 + H7 both fail | **Mainstream-ensemble** — SPRT-Liu + TSFNet + T-TIME + ST-EEGFormer |
+| All confirmatory hypotheses fail | **Fundamental halt** — major spec revision required |
 
----
-
-## License
-
-Code: MIT. Specifications (the `docs/` Markdown files): CC-BY-4.0.
+The PI commits to publishing the surviving alternative identity regardless of
+which outcome cluster occurs.
 
 ---
 
 ## Citation
 
-If you use this pre-registration, please cite (DOI to be filled at OSF
-registration time):
+If you use this pre-registration, please cite:
 
-```bibtex
-@misc{cognat_thrive_phase_a1_2026,
-  author       = {Cognat, Theo},
+\`\`\`bibtex
+@misc{zuzarte_thrive_phase_a1_2026,
+  author       = {Zuzarte, Theodore},
   title        = {{thrIVE Phase A-1: Sheaf-Coherence Falsification on Motor Imagery EEG}},
   year         = {2026},
-  doi          = {10.17605/OSF.IO/<DOI>},
-  note         = {Pre-registration with five amendments and an
-                  alternative-architectural-identity outcome framework}
+  doi          = {TBD},
+  url          = {TBD},
+  note         = {Pre-registration with five amendments}
 }
-```
+\`\`\`
+
+---
+
+## Licence
+
+All code: MIT. Specifications and analyses: CC-BY-4.0.
+
+---
+
+## Repository structure
+
+\`\`\`
+.
+├── README.md                              # this file
+├── LICENSE
+├── environment.yml                        # master conda env
+├── environment_<script>.yml               # per-script subset envs
+├── a0_preflight.py                        # the gating script
+├── rfm_features.py
+├── rjepa_features.py
+├── rjepa_brain_features.py
+├── rgl_features.py
+├── analyse_a1_factorial.py
+├── synth_a1.py
+├── phase_b1_simulator.py
+├── phase_a7_acp_twin.py
+├── phase_a7_ensemble.py
+├── phase_b2_stage3.py
+├── registered_hashes.json                 # SHA-256s at OSF registration
+├── expected_discrimination_matrix.json    # H1–H10 expected verdicts on synth
+├── manifest_A1.json                       # OSF manifest (DOI, hashes, run state)
+├── .github/
+│   └── workflows/
+│       └── preregistration-verify.yml     # CI workflow
+├── scripts/
+│   ├── verify_script_hashes.py
+│   ├── verify_discrimination_matrix.py
+│   ├── run_smoke_tests.sh
+│   └── compute_master_env_sha256.sh
+├── docs/
+│   ├── (C)-OSF-Preregistration-Phase-A1.md
+│   ├── (C)-Phase-A-Experiment-Revised.md
+│   ├── (C)-A0-Preflight-Reference-Pipeline.md
+│   ├── (C)-Master-Environment.md
+│   ├── (C)-16-Seely-Equivalence-Independent-Derivation.md
+│   ├── (C)-09-Stage-Dependency-Trace-Post-MOABB-Correction.md
+│   └── (C)-10-Quality-Weighted-Federation-Spec.md
+└── results/
+    ├── raw/                               # per-script per-subject outputs
+    ├── smoke/                             # synthetic-scenario outputs
+    └── a1_results.json                    # H1–H10 analysis verdicts
+\`\`\`
