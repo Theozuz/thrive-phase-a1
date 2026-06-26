@@ -25,7 +25,7 @@ Locked architectural choices (cannot be modified post-registration):
     learnable refinement
   - Master seed: 42
 
-Author: Theo Cognat (under direction with Claude, Anthropic)
+Author: Theodore Zuzarte (under direction with Claude, Anthropic)
 Licence: MIT
 """
 

@@ -25,7 +25,7 @@ Locked invariants (cannot modify post-registration):
   - Memory buffer: 200 epochs, balanced-class sampling
   - Master seed 42
 
-Author: Theo Cognat (under direction with Claude, Anthropic)
+Author: Theodore Zuzarte (under direction with Claude, Anthropic)
 Licence: MIT
 """
 

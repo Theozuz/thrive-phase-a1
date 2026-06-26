@@ -39,7 +39,7 @@ Locked invariants:
   - Stalk dim: d = 8 per node; total state dim = 320
   - Integration: explicit Euler, dt = 4 ms (250 Hz)
 
-Author: Theo Cognat (under direction with Claude, Anthropic)
+Author: Theodore Zuzarte (under direction with Claude, Anthropic)
 Licence: MIT
 """
 

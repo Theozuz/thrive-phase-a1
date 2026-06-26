@@ -34,7 +34,7 @@ Locked invariants (cannot modify post-registration):
   - Gate thresholds (verified May 2026 against Chevallier et al. 2024):
       0.633 (PhysionetMI L/R binary), 0.68 (BCI IV-2a 4-class)
 
-Author: Theo Cognat (under direction with Claude, Anthropic)
+Author: Theodore Zuzarte (under direction with Claude, Anthropic)
 Licence: MIT
 """
 

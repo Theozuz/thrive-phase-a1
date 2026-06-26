@@ -27,7 +27,7 @@ Locked invariants (cannot be modified post-registration):
   - Hyperdirect pathway: 1-2 cycle (4-8 ms) anomaly-to-halt latency
   - Master seed: 42
 
-Author: Theo Cognat (under direction with Claude, Anthropic)
+Author: Theodore Zuzarte (under direction with Claude, Anthropic)
 Licence: MIT
 """
 

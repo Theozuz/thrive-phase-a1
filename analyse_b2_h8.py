@@ -12,7 +12,7 @@ Locked invariants:
     - E_autopoietic threshold:   detect >= 0.90 at FA <= 0.05 (§11.4)
     - Master seed 42
 
-Author: Theo Cognat (under direction with Claude, Anthropic)
+Author: Theodore Zuzarte (under direction with Claude, Anthropic)
 Licence: MIT
 """
 
