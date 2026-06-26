@@ -21,7 +21,7 @@ Locked invariants (cannot modify post-registration):
   - Per-fold PCA to d=8 (matched to R_FM / R_JEPA / R_JEPA_brain)
   - Master seed 42
 
-Author: Theo Cognat (under direction with Claude, Anthropic)
+Author: Theodore Zuzarte (under direction with Claude, Anthropic)
 Licence: MIT
 """
 

@@ -25,7 +25,7 @@ Implementation reference:
   Maes, L., et al. (2026). LeWorldModel: Stable End-to-End Joint-Embedding
   Predictive Architecture from Pixels. arXiv:2603.19312.
 
-Author: Theo Cognat (under direction with Claude, Anthropic)
+Author: Theodore Zuzarte (under direction with Claude, Anthropic)
 Licence: MIT
 """
 

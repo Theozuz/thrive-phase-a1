@@ -23,7 +23,7 @@ Locked invariants:
   - Bootstrap n=1000 resamples for accuracy 95% CIs (informational only,
     not part of confirmatory tests)
 
-Author: Theo Cognat (under direction with Claude, Anthropic)
+Author: Theodore Zuzarte (under direction with Claude, Anthropic)
 Licence: MIT
 """
 

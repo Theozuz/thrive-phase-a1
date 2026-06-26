@@ -32,7 +32,7 @@ Locked hyperparameters (cannot modify post-registration):
   - Breach-injection rates locked at registration
   - Master seed = 42
 
-Author: Theo Cognat (under direction with Claude, Anthropic)
+Author: Theodore Zuzarte (under direction with Claude, Anthropic)
 Licence: MIT
 """
 

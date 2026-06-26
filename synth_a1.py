@@ -49,7 +49,7 @@ Locked invariants:
   - Stressors: 4 (S0, S1, S2, S3)
   - One CSV per subject, named accuracy_<subject>.csv
 
-Author: Theo Cognat (under direction with Claude, Anthropic)
+Author: Theodore Zuzarte (under direction with Claude, Anthropic)
 Licence: MIT
 """
 

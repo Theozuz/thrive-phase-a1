@@ -19,7 +19,7 @@ Locked invariants:
   - Deterministic: torch.use_deterministic_algorithms(True)
   - Model checkpoint MD5 verified against registered hash before use
 
-Author: Theo Cognat (under direction with Claude, Anthropic)
+Author: Theodore Zuzarte (under direction with Claude, Anthropic)
 Licence: MIT
 """
 
