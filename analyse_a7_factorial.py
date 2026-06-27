@@ -26,7 +26,7 @@ Locked invariants:
     - Holm-Bonferroni correction across per-hypothesis endpoint p-values
     - Joint H6/H7 verdict per §11.6 of the OSF prereg
 
-Author: Theo Zuzarte (under direction with Claude, Anthropic)
+Author: Theodore Zuzarte (under direction with Claude, Anthropic)
 Licence: MIT
 """
 
