@@ -264,7 +264,8 @@ def simulate_scenario(scenario: Scenario) -> pd.DataFrame:
     Deterministic seed: hash of scenario name + global salt 42.
     """
     # Deterministic seed: combine scenario name with base salt 42
-    seed = abs(hash(scenario.name)) % (2**32 - 1) ^ 42
+    _name_hash = int(hashlib.sha256(scenario.name.encode("utf-8")).hexdigest(), 16)
+    seed = (_name_hash % (2**32 - 1)) ^ 42
     rng = np.random.default_rng(seed)
 
     # Per-subject baseline offset (between-subject variance in latent skill)
