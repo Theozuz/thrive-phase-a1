@@ -5,13 +5,14 @@
   "analyse_b2_h8.py": "45d2f6683b7cc15801a703b8c9f619e299ac06fc9dd3da5afdfa112602cd9661",
   "environment.yml": "325a5be1003b5622cceea08367ffe39ed993f5b091a48ea1c095bfa9031d2ae4",
   "expected_discrimination_matrix.json": "ce00af0638440e654a1f330bcf4e97bef833c479b6445e3ef4a1cac674dec071",
+  "montage_a1_32ch.json": "7adbd7ed841be7d7805f378f5f546011a262f39757ed0a7afd1b64280062568d",
   "phase_a7_acp_twin.py": "02800d74c4b3bd9069a7bbee6401accf4cc728a133fbd71c3e8e8d06c93ce72c",
   "phase_a7_ensemble.py": "1c3db367f97533e7df86794dd804e640b657aa259b6e8815f25409147e612a46",
   "phase_b1_simulator.py": "ee60780fd4188b23c9d4fa0d217b98cedcdb14cb9898c2673244daa42e4e4b73",
   "phase_b2_stage3.py": "cb34988bd4925058be5d58934d9ac80dc864bc6b7e5fc2077e0da147a1b7f497",
   "rfm_features.py": "1f71ba09cad9f5c806ac662ea366c707bbe6c78e1365fdb01677ce67e156c7c2",
-  "rgl_features.py": "279f1627149b868f80940443615ba48c61b74038902d8828915857c38d0d6e52",
-  "rjepa_brain_features.py": "a2b7d59cf988b8b0fb6bbdbedbc3ea6ae11b998f2a6ed041641156073c0eed37",
-  "rjepa_features.py": "a6e54e5149e54fb3b547c782edbb6bd37075072c8cd94702b80b214efceab1e8",
+  "rgl_features.py": "eecc133897f6c22ccc5a8026efc5cec870504a941f1717848f093152b8545358",
+  "rjepa_brain_features.py": "41a0b6819b86c717531184dea963363df0a4c08c75d787083678ddd8b88a76db",
+  "rjepa_features.py": "a6f339b8c2c1633ee33e629ea381c9b30b3a9495f77a13c1da5ff9c0e182f287",
   "synth_a1.py": "d0f7fa8c23e651dbe730e8c9c81d1d2ff32e9366fd6b5bea97fd9d7d643962e0"
 }

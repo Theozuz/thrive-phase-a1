@@ -21,7 +21,7 @@ Locked architectural choices (cannot be modified post-registration):
   - SIGReg: M=1024 projections, β=1.0, λ_sig=1.0 (matched to R_JEPA)
   - Training: AdamW lr=1e-3, wd=1e-4, 50 epochs, batch 32
   - Per-fold PCA to d=8 fit on training latents only
-  - Electrode positional encoding: 64-channel standard 10-10 coordinates,
+  - Electrode positional encoding: 32-channel standard 10-10 coordinates,
     learnable refinement
   - Master seed: 42
 
@@ -55,7 +55,7 @@ from sklearn.decomposition import PCA
 # =============================================================================
 
 # Input
-N_CHANNELS_IN  = 64
+N_CHANNELS_IN  = 32
 N_SAMPLES_IN   = 1000              # 4 s × 250 Hz
 N_CHANNEL_GROUPS = 8               # 8 groups × 8 channels each
 CHANNELS_PER_GROUP = N_CHANNELS_IN // N_CHANNEL_GROUPS  # 8
@@ -129,7 +129,7 @@ def preprocess_epoch(raw_epoch_uv: np.ndarray) -> np.ndarray:
 # =============================================================================
 
 # Approximate standard 10-10 electrode coordinates (sphere projection)
-# These are 64-channel-system normalised positions; for the actual
+# These are 32-channel-system normalised positions; for the actual
 # PhysioNet EEGMMIDB system the PI may need to substitute the
 # correct electrode coordinates at registration time.
 def default_electrode_positions(n_channels: int = N_CHANNELS_IN) -> np.ndarray:

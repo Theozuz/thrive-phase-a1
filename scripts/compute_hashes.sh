@@ -23,6 +23,7 @@ LOCKED = [
     "phase_b2_stage3.py",
     "environment.yml",
     "expected_discrimination_matrix.json",
+    "montage_a1_32ch.json",
 ]
 
 manifest = {}
