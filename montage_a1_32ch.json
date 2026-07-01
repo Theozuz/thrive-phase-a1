@@ -1,0 +1,19 @@
+{
+  "montage_id": "thrive_a1_systemwide_32ch_v1",
+  "description": "thrIVE Phase A-1 system-wide deployable montage. Standard 32-channel 10-20 layout; a-priori anatomical selection (NOT data-driven). Subset of the PhysioNet EEGMMIDB 64-channel BCI2000 montage.",
+  "n_channels": 32,
+  "channels": [
+    "Fp1", "Fp2", "AF3", "AF4", "F7", "F3", "Fz", "F4", "F8",
+    "FC5", "FC1", "FC2", "FC6",
+    "T7", "C3", "Cz", "C4", "T8",
+    "CP5", "CP1", "CP2", "CP6",
+    "P7", "P3", "Pz", "P4", "P8",
+    "PO3", "PO4", "O1", "Oz", "O2"
+  ],
+  "symmetry": { "left": 14, "right": 14, "midline": 4 },
+  "source_dataset": "PhysioNet EEGMMIDB (Schalk et al. 2004), 64-channel BCI2000 montage",
+  "selection_method": "a_priori_anatomical_standard_1020",
+  "data_driven": false,
+  "applies_to": "Phase A-1 factorial thrIVE/JEPA/GL arms. A-0 preflight and the R_FM arm retain the full 64-channel montage.",
+  "casing_note": "Names follow MNE/MOABB standard; channels= performs exact matching."
+}

@@ -55,7 +55,7 @@ from sklearn.decomposition import PCA
 # -----------------------------------------------------------------------------
 
 # Architecture
-N_CHANNELS_IN   = 64
+N_CHANNELS_IN   = 32
 N_SAMPLES_IN    = 1000          # 4 s × 250 Hz
 HIDDEN_DIM      = 256
 PREDICTOR_HIDDEN = 512
@@ -117,9 +117,9 @@ def preprocess_epoch(raw_epoch_uv: np.ndarray) -> np.ndarray:
 # -----------------------------------------------------------------------------
 
 class JEPAEncoder(nn.Module):
-    """4-block 1D convolutional encoder for 64-channel EEG epochs.
+    """4-block 1D convolutional encoder for 32-channel EEG epochs.
 
-    Input shape:  (batch, 64 channels, 1000 samples)
+    Input shape:  (batch, 32 channels, 1000 samples)
     Output shape: (batch, HIDDEN_DIM = 256)
     """
     def __init__(self):

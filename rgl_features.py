@@ -49,7 +49,7 @@ from sklearn.decomposition import PCA
 # Graph (matches sheaf topology in Phase A-7 ACP twin and Phase B-2 extension)
 N_NODES = 40                # 32 N-nodes + 8 V/S/K context nodes
 N_EDGES = 80                # directed; treated as undirected for graph Laplacian
-N_CHANNELS_NEURAL = 64      # PhysioNet EEGMMIDB
+N_CHANNELS_NEURAL = 32      # PhysioNet EEGMMIDB
 CHANNELS_PER_NODE = 8       # 8 channels per N-node (consistent with R_FM/R_JEPA)
 
 # Graph Laplacian features
@@ -142,7 +142,7 @@ def precompute_eigendecomposition(L_G: np.ndarray) -> Tuple[np.ndarray, np.ndarr
 # =============================================================================
 
 def epoch_to_node_scalars(epoch_preprocessed: np.ndarray) -> np.ndarray:
-    """Project preprocessed EEG (64 channels × T samples) to per-node scalars.
+    """Project preprocessed EEG (32 channels × T samples) to per-node scalars.
 
     Each node gets the mean signal energy across its 8 assigned channels.
     This is the scalar-Laplacian analogue of the sheaf's vector-stalk
@@ -150,7 +150,7 @@ def epoch_to_node_scalars(epoch_preprocessed: np.ndarray) -> np.ndarray:
 
     Returns (N_NODES,) scalar per-node activations.
     """
-    # First 32 nodes = neural; map 64 channels → 32 nodes (2 channels per node)
+    # First 32 nodes = neural; map 32 channels → 32 nodes (1 channel per node)
     # to match the sheaf's per-node electrode-grouping
     channels_per_n_node = N_CHANNELS_NEURAL // 32   # = 2
     neural_scalars = np.empty(32)
