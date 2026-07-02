@@ -34,7 +34,8 @@
   "gate_threshold_bci_iv_2a":       0.68,
   "moabb_published_physionet":      0.6728,
   "moabb_published_bci_iv_2a":      0.7197,
-  "moabb_baseline_correction_log":  "v2.0-draft errata of May 2026: original 92 / 78 pct gate values were row-confusions with PhysionetMI right-hand-vs-feet (93.15 pct) and were corrected to the verified MOABB-published TS+LR values 67.28 / 71.97 pct before OSF lock.",
+  "moabb_baseline_correction_log":  "v2.0-draft errata of May 2026: original 92% / 78% gate values were row-confusions with PhysionetMI right-hand-vs-feet (93.15%) and were corrected to the verified MOABB-published TS+LR values 67.28% / 71.97% before OSF lock.",
+
 
   "phase_a_zero_paper_check_doc":   "docs/(C)-16-Seely-Equivalence-Independent-Derivation.md",
   "phase_a_zero_completed_utc":     "<ISO 8601 of A-0 sign-off — post-DOI>",
