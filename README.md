@@ -81,7 +81,7 @@ verification — branch protection on `main` requires CI green before merge.
 | 2 | `rfm_features.py` | Pre-trained EEG foundation-model features (R_FM) | `python rfm_features.py --smoke-test` |
 | 3 | `rjepa_features.py` | LeWM-style cross-domain JEPA (R_JEPA) | `python rjepa_features.py --smoke-test` |
 | 4 | `rjepa_brain_features.py` | Brain-/Signal-JEPA domain-specific (R_JEPA_brain) | `python rjepa_brain_features.py --smoke-test` |
-| 5 | `rgl_features.py` | Graph-Laplacian-only (R_GL — cohomology-isolation test) | `python rgl_features.py --smoke-test` |
+| 5 | `sheaf_features.py` | Graph-Laplacian-only (R_GL — cohomology-isolation test) | `python sheaf_features.py --smoke-test` |
 | 6 | `analyse_a1_factorial.py` | H1–H10 hypothesis tests + joint interpretation matrix | (driven by `synth_a1.py`) |
 | 7 | `synth_a1.py` | Synthetic A-1 scenarios for analysis-pipeline verification | `bash scripts/run_smoke_tests.sh` |
 | 8 | `.github/workflows/preregistration-verify.yml` | CI workflow — hash + smoke + matrix | runs on every commit |
@@ -204,7 +204,7 @@ All code: MIT. Specifications and analyses: CC-BY-4.0.
 ├── rfm_features.py
 ├── rjepa_features.py
 ├── rjepa_brain_features.py
-├── rgl_features.py
+├── sheaf_features.py
 ├── analyse_a1_factorial.py
 ├── synth_a1.py
 ├── phase_b1_simulator.py

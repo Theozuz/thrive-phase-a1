@@ -34,7 +34,7 @@ jobs:
         shell: bash -l {0}
         run: |
           python -m py_compile a0_preflight.py rfm_features.py \
-              rjepa_features.py rjepa_brain_features.py rgl_features.py \
+              rjepa_features.py rjepa_brain_features.py sheaf_features.py \
               analyse_a1_factorial.py synth_a1.py \
               phase_b1_simulator.py phase_a7_acp_twin.py \
               phase_a7_ensemble.py phase_b2_stage3.py

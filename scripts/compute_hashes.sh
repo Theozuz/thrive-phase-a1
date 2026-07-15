@@ -12,7 +12,7 @@ LOCKED = [
     "rfm_features.py",
     "rjepa_features.py",
     "rjepa_brain_features.py",
-    "rgl_features.py",
+    "sheaf_features.py",
     "analyse_a1_factorial.py",
     "analyse_a7_factorial.py",
     "analyse_b2_h8.py",
