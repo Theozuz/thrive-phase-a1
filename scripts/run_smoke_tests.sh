@@ -14,8 +14,8 @@ mkdir -p results/smoke
 echo "=== 1/13  a0_preflight smoke test ==="
 python a0_preflight.py --smoke-test --output results/smoke/a0_smoke.json
 
-echo "=== 2/13  rgl_features smoke test ==="
-python rgl_features.py --smoke-test
+echo "=== 2/13  sheaf_features smoke test ==="
+python sheaf_features.py --smoke-test
 
 echo "=== 3/13  synth_a1 -- eight scenarios ==="
 for scenario in all_pass h1_fail h2_fail h3_fail h4_fail h5_fail h9_fail h10_fail; do

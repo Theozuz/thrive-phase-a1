@@ -132,43 +132,24 @@ def paired_cohens_d(x: np.ndarray, y: np.ndarray) -> float:
     return float(diff.mean() / diff.std(ddof=1))
 
 
-def paired_bf10(x: np.ndarray, y: np.ndarray, alternative: str = "greater") -> float:
-    """Paired-samples Bayes Factor (one-sided).
-
-    pingouin 0.6+ omits the BF10 column from `pg.ttest()` output when
-    `alternative != 'two-sided'`. We therefore compute the two-sided BF10
-    via the default `pg.ttest(...)` call, then convert to one-sided using
-    the standard Morey & Wagenmakers (2014) adjustment:
-
-        BF10_one_sided = 2 * BF10_two_sided * P(data in predicted direction)
-
-    where P(.) is approximated by the proportion of paired differences
-    consistent with the directional hypothesis. This recovers the one-sided
-    BF behavior the spec commits to (default Rouder/Cauchy prior, r = 0.707).
-    """
-    # Two-sided BF10 (always present in pingouin output)
-    bf10_two = float(pg.ttest(x, y, paired=True).BF10.iloc[0])
-
-    if alternative == "two-sided":
-        return bf10_two
-
-    # Direction-consistent fraction of paired differences
-    diff = np.asarray(x) - np.asarray(y)
-    if alternative == "greater":
-        p_dir = float((diff > 0).mean())
-    elif alternative == "less":
-        p_dir = float((diff < 0).mean())
-    else:
-        raise ValueError(f"alternative must be 'greater', 'less', or 'two-sided'; got {alternative!r}")
-
-    # Standard one-sided BF conversion (Morey & Wagenmakers, 2014)
-    return 2.0 * bf10_two * p_dir
-
-
-def paired_one_sided_p(x: np.ndarray, y: np.ndarray) -> float:
-    """One-sided p-value for H_A: mean(x) > mean(y), paired."""
+def paired_one_sided_p(x, y):
     t, p_two = stats.ttest_rel(x, y)
     return float(p_two / 2.0) if t > 0 else float(1.0 - p_two / 2.0)
+
+def paired_bf10(x, y, alternative="greater"):
+    """One-sided paired Bayes factor (CORRECTED).
+
+    BF_{+0} = 2 * BF10_two * P(delta > 0 | data), with P(delta>0|data) approximated by
+    the posterior-mass proxy 1 - one_sided_p  (matching-prior identity) -- NOT the sample
+    proportion (diff > 0).mean(), which is a different quantity and mis-calibrates the H1 gate.
+    """
+    x = np.asarray(x, float); y = np.asarray(y, float)
+    bf10_two = float(pg.ttest(x, y, paired=True).BF10.iloc[0])
+    if alternative == "two-sided":
+        return bf10_two
+    p_one = paired_one_sided_p(x, y)
+    p_dir = (1.0 - p_one) if alternative == "greater" else p_one
+    return 2.0 * bf10_two * float(np.clip(p_dir, 0.0, 1.0))
 
 
 def bootstrap_diff_ci(
